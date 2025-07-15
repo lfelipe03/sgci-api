@@ -44,7 +44,9 @@ public class Endereco {
 	@Column(name = "NUMERO")
 	private Integer numero;
 	
-	
+	public Endereco () {
+
+	}
 
 	public Endereco(
 			@Size(max = 8) String cep,

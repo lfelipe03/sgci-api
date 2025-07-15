@@ -14,7 +14,7 @@ public class Pessoa {
     private Long id;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_ENDERECO")
     private Endereco endereco;
 
@@ -42,6 +42,9 @@ public class Pessoa {
     @Enumerated(EnumType.STRING)
     @Column(name = "EN_ESTADO_CIVIL")
     private EstadoCivilEnum estadoCivil;
+
+    public Pessoa() {}
+
 
     public Pessoa(Endereco endereco, String nome, TipoPessoaEnum tipo, String documento, String profissao, EstadoCivilEnum estadoCivil) {
         this.endereco = endereco;
