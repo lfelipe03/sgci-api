@@ -1,8 +1,6 @@
 package br.com.SGCI.controller;
 
-import br.com.SGCI.controller.schema.PessoaDTO;
-import br.com.SGCI.controller.schema.PessoaResponse;
-import br.com.SGCI.controller.schema.PessoaUpd;
+import br.com.SGCI.controller.schema.*;
 import br.com.SGCI.model.Pessoa;
 import br.com.SGCI.service.PessoaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,8 +27,8 @@ public class PessoaController {
 
 
 	@GetMapping
-	public ResponseEntity<List<PessoaResponse>> findAll() {
-		return ResponseEntity.ok(pessoaService.findAll());
+	public ResponseEntity<ResponsePagedCommom<PessoaResponse>> findAll(@Valid PessoaFilter filtros) {
+		return ResponseEntity.ok(pessoaService.findAll(filtros));
 	}
 
 	@GetMapping(path = {"{idPessoa}"})
