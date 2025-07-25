@@ -5,6 +5,9 @@ import br.com.SGCI.model.TipoPessoaEnum;
 import jakarta.validation.constraints.NotNull;
 
 public record PessoaResponse(
+
+        Long id,
+
         String nome,
 
         EnderecoResponse endereco,
